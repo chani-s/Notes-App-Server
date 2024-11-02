@@ -35,6 +35,14 @@ app.put('/api/notes/:id', (req, res) => {
     res.json(notes.find(note => note.id == id));
 });
 
+app.put('/api/notes/color/:id', (req, res) => {
+    const { id } = req.params;
+    const updatedColor = req.body.color;
+
+    notes = notes.map(note => note.id == id ? { ...note, color: updatedColor } : note);
+    res.json(notes.find(note => note.id == id));
+});
+
 app.delete('/api/notes/:id', (req, res) => {
     const { id } = req.params;
     notes = notes.filter(note => note.id != id);
