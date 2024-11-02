@@ -18,13 +18,13 @@ app.get('/api/notes', (req, res) => {
     res.json(notes);
 });
 
-app.post('/api/notes', (req, res) => {
+app.post('/api/notes/add', (req, res) => {
     const newNote = { ...req.body, id: Date.now() };
     notes.push(newNote);
     res.json(newNote);
 });
 
-app.put('/api/notes/:id', (req, res) => {
+app.put('/api/notes/text/:id', (req, res) => {
     const { id } = req.params;
     const updatedText = req.body.text;
 
@@ -40,7 +40,7 @@ app.put('/api/notes/color/:id', (req, res) => {
     res.json(notes.find(note => note.id == id));
 });
 
-app.delete('/api/notes/:id', (req, res) => {
+app.delete('/api/notes/delete/:id', (req, res) => {
     const { id } = req.params;
     notes = notes.filter(note => note.id != id);
     res.sendStatus(204); 
