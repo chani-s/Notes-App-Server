@@ -9,10 +9,13 @@ app.use(bodyParser.json());
 const port = 8080;
 
 let notes = [
-    { id: 1, text: 'Text a', color: 'green' },
-    { id: 2, text: 'Text b', color: 'blue' },
-    { id: 3, text: 'Text c', color: 'red' },
+    { id: 1, text: 'Text a', color: '#006D77' },
+    { id: 2, text: 'Text b', color: '#83C5BE' },
+    { id: 4, text: 'Text c', color: '#FFDDD2' },
+    { id: 5, text: 'Text d', color: '#E29578' },
+
 ];
+
 
 app.get('/api/notes', (req, res) => {
     res.json(notes);
